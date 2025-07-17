@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "sy7ofhz83wc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cansu.daban\\source\\repos\\ElasticSearch\\ElasticSearch.API\\ElasticSearch.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\elasticsearch.net\\7.17.5\\elasticsearch.net.7.17.5.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.6\\microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\microsoft.openapi\\1.6.23\\microsoft.openapi.1.6.23.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\nest\\7.17.5\\nest.7.17.5.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\9.0.1\\swashbuckle.aspnetcore.swagger.9.0.1.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\9.0.1\\swashbuckle.aspnetcore.swaggergen.9.0.1.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\9.0.1\\swashbuckle.aspnetcore.swaggerui.9.0.1.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\cansu.daban\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
