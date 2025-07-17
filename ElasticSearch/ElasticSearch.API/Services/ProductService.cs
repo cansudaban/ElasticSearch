@@ -1,4 +1,5 @@
-﻿using ElasticSearch.API.DTOs;
+﻿using Elastic.Clients.Elasticsearch;
+using ElasticSearch.API.DTOs;
 using ElasticSearch.API.Models;
 using ElasticSearch.API.Repositories;
 using System.Collections.Immutable;
@@ -76,14 +77,15 @@ namespace ElasticSearch.API.Services
         {
             var deleteResponse = await _repository.DeleteAsync(id);
 
-            if (!deleteResponse.IsValid && deleteResponse.Result == Nest.Result.NotFound)
+            if (!deleteResponse.IsValidResponse && deleteResponse.Result == Result.NotFound)
             {
                 return ResponseDto<bool>.Fail("Silmeye çalıştığınız kayıt bulunamamıştır", HttpStatusCode.InternalServerError);
             }
 
-            if (!deleteResponse.IsValid)
+            if (!deleteResponse.IsValidResponse)
             {
-                _logger.LogError("Delete işlemi sırasında hata oluştu: {ErrorMessage}", deleteResponse.ServerError?.Error?.Reason);
+                deleteResponse.TryGetOriginalException(out Exception? exception);
+                _logger.LogError(exception, deleteResponse.ElasticsearchServerError?.Error?.Reason);
                 return ResponseDto<bool>.Fail(new List<string> { "delete esnasında bir hata meydana geldi." }, HttpStatusCode.InternalServerError);
             }
             return ResponseDto<bool>.Success(true, HttpStatusCode.NoContent);

@@ -52,13 +52,17 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Elastic.Apm.Elasticsearch": {
+              "target": "Package",
+              "version": "[1.32.2, )"
+            },
+            "Elastic.Clients.Elasticsearch": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.6, )"
-            },
-            "NEST": {
-              "target": "Package",
-              "version": "[7.17.5, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
