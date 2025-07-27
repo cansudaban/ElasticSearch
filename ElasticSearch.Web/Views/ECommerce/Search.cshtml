@@ -1,0 +1,89 @@
+﻿@using ElasticSearch.Web.ViewModels
+@{
+	ViewData["Title"] = "Search";
+}
+@model SearchPageViewModel
+<h1>Search</h1>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<form asp-action="Search" method="Get">
+				<div class="form-group">
+					<label asp-for="SearchViewModel.CustomerFullName">Customer Full Name</label>
+					<input asp-for="SearchViewModel.CustomerFullName" class="form-control"></input>
+				</div>
+				<div class="form-group">
+					<label asp-for="SearchViewModel.Category" class="form-label">Category</label>
+					<input asp-for="SearchViewModel.Category" class="form-control">
+				</div>
+				<div class="form-group">
+					<label asp-for="SearchViewModel.Gender">Gender</label>
+					<input asp-for="SearchViewModel.Gender" class="form-control"></input>
+				</div>
+				<div class="form-group">
+					<label asp-for="SearchViewModel.OrderDateStart">Order Date Start</label>
+					<input asp-for="SearchViewModel.OrderDateStart" class="form-control"></input>
+				</div>
+				<div class="form-group">
+					<label asp-for="SearchViewModel.OrderDateEnd">Order Date End</label>
+					<input asp-for="SearchViewModel.OrderDateEnd" class="form-control"></input>
+				</div>
+				<div class="form-group">
+					<button type="submit">Save</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-9">
+			<div class="alert alert-success">
+				<span>Toplam @Model.TotalCount kayıt bulunmuştur.</span>
+			</div>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Customer Full Name</th>
+						<th>Category</th>
+						<th>Gender</th>
+						<th>Order Date</th>
+						<th>Taxful Total Price</th>
+						<th>OrderId</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model.List)
+					{
+						<tr>
+							<td>@item.CustomerFullName</td>
+							<td>@item.Category</td>
+							<td>@item.Gender</td>
+							<td>@item.OrderDate</td>
+							<td>@item.TaxfulTotalPrice</td>
+							<td>@item.OrderId</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+
+			<nav>
+				<ul class="pagination">
+					<li class="page-item">
+						<a class="page-link" href="@Model.CreatePageUrl(Context.Request, 1, Model.PageSize)">First</a>
+					</li>
+
+					@for (int i = Model.StartPage(); i <= Model.EndPage(); i++)
+					{
+						<li class="page-item @(Model.Page == i ? "active" : "")">
+							<a class="page-link" href="@Model.CreatePageUrl(Context.Request, i, Model.PageSize)">@i</a>
+						</li>
+					}
+
+					<li class="page-item">
+						<a class="page-link" href="@Model.CreatePageUrl(Context.Request, Model.PageLinkCount, Model.PageSize)">Last</a>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+	</div>
+</div>

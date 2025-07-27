@@ -1,0 +1,39 @@
+﻿@using ElasticSearch.Web.ViewModels;
+
+@{
+	ViewData["Title"] = "Save Blog Post";
+}
+
+@model BlogCreateViewModel
+
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+
+		@if (TempData["result"] != null)
+		{
+			<div class="alert alert-info">
+				@TempData["result"]
+			</div>
+		}
+
+		<h2>Blog Create</h2>
+
+		<form asp-action="Save">
+			<div class="form-group">
+				<label asp-for="Title" class="form-label">Title</label>
+				<input asp-for="Title"class="form-control">
+			</div>
+			<div class="form-group">
+				<label asp-for="Content">Content</label>
+				<textarea asp-for="Content" class="form-control"></textarea>
+			</div>
+			<div class="form-group">
+				<label asp-for="Tags">Tags</label>
+				<input asp-for="Tags" class="form-control"></input>
+			</div>
+			<div class="form-group">
+				<button type="submit">Save</button>
+			</div>
+		</form>
+	</div>
+</div>
